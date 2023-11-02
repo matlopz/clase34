@@ -15,7 +15,7 @@ const cartsService = {
 
   async createCart() {
     try {
-      return await CartRepository.saveCart(await CartRepository.createEmptyCart());
+      return await CartRepository.saveCart(await CartRepository.createCart({ products: [] }));
     } catch (error) {
       console.error('Error:', error);
       throw new Error('Error al crear el carrito');

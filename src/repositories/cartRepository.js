@@ -20,6 +20,13 @@ class CartRepository {
       throw new Error('Error fetching cart by ID');
     }
   }
+  async createCart() {
+    try {
+      return await this.cartFactory.createEmptyCart({ products: [] })
+    } catch (error) {
+      throw new Error('Error fetching cart by ID');
+    }
+  }
 
   async saveCart(cart) {
     try {

@@ -1,5 +1,6 @@
 
-const cartService = require('../services/cartsService');
+const cartsService = require('./cartsService'); // Cambia 'cartService' a 'cartsService'
+
 const UsuarioRepository = require('../repositories/UsuarioRepository');
 const { comparePassword, getHashedPassword } = require('../utils/bcrypts');
 const { generateToken } = require('../utils/jwt');
@@ -55,7 +56,7 @@ class UsuarioService {
         cart: [],
       });
 
-      const cart = await cartService.createCart({ products: [] });
+      const cart = await cartsService.createCart()
       console.log('que tiene cart cuando se crea?',cart)
       newUser.cart.push({ product: cart._id, quantity: 0 });
       
